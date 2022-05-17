@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import org.apache.commons.lang3.StringUtils;
 import org.bouncycastle.util.encoders.Hex;
 
 import com.paymennt.bitcoinj.lib.OpCodes;
@@ -238,7 +237,7 @@ public class Script {
      * TODO: review
      */
     public static Script fromAddress(String address, Network network) {
-        if (StringUtils.isBlank(address))
+        if (address == null)
             return null;
 
         boolean mainNet = network.equals(Network.MAINNET);
@@ -260,7 +259,7 @@ public class Script {
      * TODO: review
      */
     public static AddressFormat getAddressFormat(String address, Network network) {
-        if (StringUtils.isBlank(address))
+        if (address == null)
             return null;
 
         boolean mainNet = network.equals(Network.MAINNET);
