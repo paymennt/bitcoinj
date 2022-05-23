@@ -1,3 +1,7 @@
+/************************************************************************ 
+ * Copyright PointCheckout, Ltd.
+ * 
+ */
 package com.paymennt.bitcoinj.sign;
 
 import static java.math.BigInteger.valueOf;
@@ -14,11 +18,22 @@ import org.bouncycastle.util.encoders.Hex;
 import com.paymennt.bitcoinj.lib.VarInt;
 import com.paymennt.crypto.lib.LittleEndian;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Witness.
+ *
+ * @author payemnnt
+ */
 public class Witness {
+    
+    /** The items. */
     private List<Object> items;
     
-    /*******************************************************************************************************************
-     * CONSTRUCTOR
+    /**
+     * *****************************************************************************************************************
+     * CONSTRUCTOR.
+     *
+     * @param items the items
      */
     
     /**
@@ -28,8 +43,13 @@ public class Witness {
         this.items = items;
     }
     
-    /*******************************************************************************************************************
-     * STATIC BUILDERS
+    /**
+     * *****************************************************************************************************************
+     * STATIC BUILDERS.
+     *
+     * @param stream the stream
+     * @return the witness
+     * @throws IOException Signals that an I/O exception has occurred.
      */
     
     /**
@@ -51,8 +71,11 @@ public class Witness {
         return new Witness(items);
     }
     
-    /*******************************************************************************************************************
-     * PUBLIC METHODS
+    /**
+     * *****************************************************************************************************************
+     * PUBLIC METHODS.
+     *
+     * @param item the item
      */
     
     /**
@@ -63,14 +86,18 @@ public class Witness {
     }
     
     /**
-     * @return
+     * Gets the items.
+     *
+     * @return the items
      */
     public List<Object> getItems() {
         return items;
     }
     
     /**
-     * @return
+     * Serialize.
+     *
+     * @return the string
      */
     public String serialize() {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();

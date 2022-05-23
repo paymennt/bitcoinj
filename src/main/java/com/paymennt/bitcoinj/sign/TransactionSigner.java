@@ -1,3 +1,7 @@
+/************************************************************************ 
+ * Copyright PointCheckout, Ltd.
+ * 
+ */
 package com.paymennt.bitcoinj.sign;
 
 import java.io.IOException;
@@ -11,15 +15,23 @@ import com.paymennt.bitcoinj.data.BitcoinTransactionInput;
 import com.paymennt.crypto.bip32.wallet.key.HdPrivateKey;
 import com.paymennt.crypto.bip32.wallet.key.HdPublicKey;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class TransactionSigner.
+ *
+ * @author payemnnt
+ */
 public class TransactionSigner {
     
     /**
-     * @param transaction
-     * @param privateKey
-     * @param inputIndex
-     * @param amount
-     * @param isSegwitInput
-     * @throws IOException
+     * Sign.
+     *
+     * @param transaction the transaction
+     * @param privateKey the private key
+     * @param publicKey the public key
+     * @param inputIndex the input index
+     * @param amount the amount
+     * @throws IOException Signals that an I/O exception has occurred.
      */
     public static void sign(
         BitcoinTransaction transaction,
@@ -40,13 +52,15 @@ public class TransactionSigner {
     }
     
     /**
-     * @param transaction
-     * @param privateKey
-     * @param index
-     * @param amount
-     * @param isSegwitInput
-     * @return
-     * @throws IOException
+     * Gets the sig hash.
+     *
+     * @param transaction the transaction
+     * @param privateKey the private key
+     * @param publicKey the public key
+     * @param inputIndex the input index
+     * @param amount the amount
+     * @return the sig hash
+     * @throws IOException Signals that an I/O exception has occurred.
      */
     private static String getSigHash(
         BitcoinTransaction transaction,

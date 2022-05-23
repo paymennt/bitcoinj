@@ -1,3 +1,7 @@
+/************************************************************************ 
+ * Copyright PointCheckout, Ltd.
+ * 
+ */
 package com.paymennt.bitcoinj.lib;
 
 import java.math.BigInteger;
@@ -7,13 +11,34 @@ import org.bouncycastle.util.Arrays;
 
 import com.paymennt.crypto.lib.Sha256;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class TaggedHash.
+ *
+ * @author payemnnt
+ */
 public class TaggedHash {
+    
+    /**
+     * Hash.
+     *
+     * @param tag the tag
+     * @param key the key
+     * @return the byte[]
+     */
     public static byte[] hash(String tag, byte[] key) {
         byte[] shaTag = Sha256.hash(tag.getBytes(StandardCharsets.UTF_8));
         byte[] shaTags = Arrays.concatenate(shaTag, shaTag);
         return Sha256.hash(Arrays.concatenate(shaTags, key));
     }
 
+    /**
+     * Hash to big integer.
+     *
+     * @param tag the tag
+     * @param key the key
+     * @return the big integer
+     */
     public static BigInteger hashToBigInteger(String tag, byte[] key) {
         return new BigInteger(1, hash(tag, key));
     }

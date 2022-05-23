@@ -1,3 +1,7 @@
+/************************************************************************ 
+ * Copyright PointCheckout, Ltd.
+ * 
+ */
 package com.paymennt.bitcoinj.data;
 
 import static java.math.BigInteger.valueOf;
@@ -16,12 +20,25 @@ import com.paymennt.crypto.lib.Hash160;
 import com.paymennt.crypto.lib.Hash256;
 import com.paymennt.crypto.lib.LittleEndian;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class SegwitBitcoinTransactionInput.
+ *
+ * @author payemnnt
+ */
 public class SegwitBitcoinTransactionInput extends BitcoinTransactionInput {
     
+    /** The witness. */
     private Witness witness = new Witness(new ArrayList<>());
     
-    /*******************************************************************************************************************
-     * CONSTRUCTOR
+    /**
+     * *****************************************************************************************************************
+     * CONSTRUCTOR.
+     *
+     * @param previousTransactionId the previous transaction id
+     * @param previousIndex the previous index
+     * @param scriptSig the script sig
+     * @param sequence the sequence
      */
     
     /**
@@ -39,8 +56,11 @@ public class SegwitBitcoinTransactionInput extends BitcoinTransactionInput {
         super(previousTransactionId, previousIndex, scriptSig, sequence);
     }
     
-    /*******************************************************************************************************************
-     * ABSTRACT IMPLEMENTATION METHODS
+    /**
+     * *****************************************************************************************************************
+     * ABSTRACT IMPLEMENTATION METHODS.
+     *
+     * @return true, if is segwit input
      */
     
     /**
@@ -77,14 +97,22 @@ public class SegwitBitcoinTransactionInput extends BitcoinTransactionInput {
         );
     }
     
-    /*******************************************************************************************************************
-     * CLASS METHODS
+    /**
+     * *****************************************************************************************************************
+     * CLASS METHODS.
+     *
+     * @return the witness
      */
     
     public Witness getWitness() {
         return witness;
     }
     
+    /**
+     * Sets the witness.
+     *
+     * @param witness the new witness
+     */
     public void setWitness(Witness witness) {
         this.witness = witness;
     }
@@ -104,7 +132,9 @@ public class SegwitBitcoinTransactionInput extends BitcoinTransactionInput {
     }
     
     /**
-     * @param command
+     * Append to witness.
+     *
+     * @param command the command
      */
     public void appendToWitness(Object command) {
         if (witness.getItems().size() == 0) {
@@ -114,11 +144,13 @@ public class SegwitBitcoinTransactionInput extends BitcoinTransactionInput {
     }
     
     /**
-     * @param transaction
-     * @param serializedScriptPubkey
-     * @param amount
-     * @return
-     * @throws IOException
+     * Gets the sig hash internal.
+     *
+     * @param transaction the transaction
+     * @param serializedScriptPubkey the serialized script pubkey
+     * @param amount the amount
+     * @return the sig hash internal
+     * @throws IOException Signals that an I/O exception has occurred.
      */
     private String getSigHashInternal(
         BitcoinTransaction transaction,

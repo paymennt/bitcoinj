@@ -1,3 +1,7 @@
+/************************************************************************ 
+ * Copyright PointCheckout, Ltd.
+ * 
+ */
 package com.paymennt.bitcoinj.lib;
 
 import static java.math.BigInteger.valueOf;
@@ -12,8 +16,21 @@ import org.bouncycastle.util.encoders.Hex;
 
 import com.paymennt.crypto.lib.LittleEndian;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class VarInt.
+ *
+ * @author payemnnt
+ */
 public class VarInt {
 
+    /**
+     * From byte stream.
+     *
+     * @param bytes the bytes
+     * @return the big integer
+     * @throws IOException Signals that an I/O exception has occurred.
+     */
     public static BigInteger fromByteStream(ByteArrayInputStream bytes) throws IOException {
         BigInteger firstByte = new BigInteger(1, bytes.readNBytes(1));
         if (firstByte.equals(valueOf(253))) {
@@ -26,6 +43,12 @@ public class VarInt {
         return firstByte;
     }
 
+    /**
+     * To byte stream.
+     *
+     * @param bigInteger the big integer
+     * @return the byte array input stream
+     */
     public static ByteArrayInputStream toByteStream(BigInteger bigInteger) {
         if (bigInteger.equals(BigInteger.ZERO)) {
             return new ByteArrayInputStream(new byte[] { 0 });
@@ -44,6 +67,12 @@ public class VarInt {
         throw new IllegalArgumentException("Number too large: ".concat(bigInteger.toString()));
     }
 
+    /**
+     * To hex.
+     *
+     * @param bigInteger the big integer
+     * @return the string
+     */
     public static String toHex(BigInteger bigInteger) {
         return Hex.toHexString(toByteStream(bigInteger).readAllBytes());
     }

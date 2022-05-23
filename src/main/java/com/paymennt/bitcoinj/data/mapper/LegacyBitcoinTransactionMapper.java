@@ -18,23 +18,30 @@ import com.paymennt.bitcoinj.data.LegacyBitcoinTransaction;
 import com.paymennt.bitcoinj.lib.VarInt;
 import com.paymennt.crypto.lib.LittleEndian;
 
+// TODO: Auto-generated Javadoc
 /**
- * @author bashar
+ * The Class LegacyBitcoinTransactionMapper.
  *
+ * @author bashar
  */
 public class LegacyBitcoinTransactionMapper extends AbstractBitcoinTransactionMapper<LegacyBitcoinTransaction> {
 
+    /** The Constant INSTANCE. */
     public static final LegacyBitcoinTransactionMapper INSTANCE = new LegacyBitcoinTransactionMapper();
 
-    /*******************************************************************************************************************
-     * 
+    /**
+     * *****************************************************************************************************************.
      */
 
     private LegacyBitcoinTransactionMapper() {
     }
 
-    /*******************************************************************************************************************
-     * 
+    /**
+     * *****************************************************************************************************************.
+     *
+     * @param stream the stream
+     * @return true, if is supported
+     * @throws IOException Signals that an I/O exception has occurred.
      */
 
     /**

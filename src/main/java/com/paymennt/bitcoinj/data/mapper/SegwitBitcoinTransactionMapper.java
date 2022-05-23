@@ -19,28 +19,39 @@ import com.paymennt.bitcoinj.data.SegwitBitcoinTransactionInput;
 import com.paymennt.bitcoinj.lib.VarInt;
 import com.paymennt.crypto.lib.LittleEndian;
 
+// TODO: Auto-generated Javadoc
 /**
- * @author bashar
+ * The Class SegwitBitcoinTransactionMapper.
  *
+ * @author bashar
  */
 public class SegwitBitcoinTransactionMapper extends AbstractBitcoinTransactionMapper<SegwitBitcoinTransaction> {
 
+    /** The Constant INSTANCE. */
     public static final SegwitBitcoinTransactionMapper INSTANCE = new SegwitBitcoinTransactionMapper();
 
+    /** The Constant SEGWIT_MARKER. */
     protected static final String SEGWIT_MARKER = "00";
 
+    /** The Constant SEGWIT_FLAG. */
     private static final String SEGWIT_FLAG = "01";
+    
+    /** The Constant LEGACY_WITNESS. */
     private static final String LEGACY_WITNESS = "00";
 
-    /*******************************************************************************************************************
-     * 
+    /**
+     * *****************************************************************************************************************.
      */
 
     private SegwitBitcoinTransactionMapper() {
     }
 
-    /*******************************************************************************************************************
-     * 
+    /**
+     * *****************************************************************************************************************.
+     *
+     * @param stream the stream
+     * @return true, if is supported
+     * @throws IOException Signals that an I/O exception has occurred.
      */
 
     /**
@@ -85,6 +96,13 @@ public class SegwitBitcoinTransactionMapper extends AbstractBitcoinTransactionMa
         return new SegwitBitcoinTransaction(version, inputs, outputs, locktime);
     }
 
+    /**
+     * Serialize.
+     *
+     * @param transaction the transaction
+     * @return the string
+     * @throws IOException Signals that an I/O exception has occurred.
+     */
     @Override
     public String serialize(SegwitBitcoinTransaction transaction) throws IOException {
         StringBuilder stringBuilder = new StringBuilder();
