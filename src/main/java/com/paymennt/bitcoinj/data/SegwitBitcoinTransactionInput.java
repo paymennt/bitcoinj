@@ -20,25 +20,23 @@ import com.paymennt.crypto.lib.Hash160;
 import com.paymennt.crypto.lib.Hash256;
 import com.paymennt.crypto.lib.LittleEndian;
 
-// TODO: Auto-generated Javadoc
+
 /**
- * The Class SegwitBitcoinTransactionInput.
- *
- * @author payemnnt
+ * @author paymennt
+ * 
  */
 public class SegwitBitcoinTransactionInput extends BitcoinTransactionInput {
     
-    /** The witness. */
+    /**  */
     private Witness witness = new Witness(new ArrayList<>());
     
     /**
-     * *****************************************************************************************************************
-     * CONSTRUCTOR.
+     * 
      *
-     * @param previousTransactionId the previous transaction id
-     * @param previousIndex the previous index
-     * @param scriptSig the script sig
-     * @param sequence the sequence
+     * @param previousTransactionId 
+     * @param previousIndex 
+     * @param scriptSig 
+     * @param sequence 
      */
     
     /**
@@ -57,10 +55,9 @@ public class SegwitBitcoinTransactionInput extends BitcoinTransactionInput {
     }
     
     /**
-     * *****************************************************************************************************************
-     * ABSTRACT IMPLEMENTATION METHODS.
+     * 
      *
-     * @return true, if is segwit input
+     * @return 
      */
     
     /**
@@ -72,7 +69,9 @@ public class SegwitBitcoinTransactionInput extends BitcoinTransactionInput {
     }
     
     /**
-     * {@inheritDoc}
+     * 
+     *
+     * @param commands 
      */
     @Override
     public void setSignature(List<Object> commands) {
@@ -81,7 +80,13 @@ public class SegwitBitcoinTransactionInput extends BitcoinTransactionInput {
     }
     
     /**
-     * {@inheritDoc}
+     * 
+     *
+     * @param transaction 
+     * @param compressedPublicKey 
+     * @param amount 
+     * @return 
+     * @throws IOException 
      */
     @Override
     public String getSigHash(
@@ -98,10 +103,9 @@ public class SegwitBitcoinTransactionInput extends BitcoinTransactionInput {
     }
     
     /**
-     * *****************************************************************************************************************
-     * CLASS METHODS.
+     * 
      *
-     * @return the witness
+     * @return 
      */
     
     public Witness getWitness() {
@@ -109,32 +113,37 @@ public class SegwitBitcoinTransactionInput extends BitcoinTransactionInput {
     }
     
     /**
-     * Sets the witness.
+     * 
      *
-     * @param witness the new witness
+     * @param witness 
      */
     public void setWitness(Witness witness) {
         this.witness = witness;
     }
     
     /**
-     * {@inheritDoc}
+     * 
+     *
+     * @return 
      */
     public String serializeWitness() {
         return witness.serialize();
     }
     
     /**
-     * {@inheritDoc}
+     * 
+     *
+     * @param stream 
+     * @throws IOException 
      */
     public void setWitnessFromByteStream(ByteArrayInputStream stream) throws IOException {
         witness = Witness.fromByteStream(stream);
     }
     
     /**
-     * Append to witness.
+     * 
      *
-     * @param command the command
+     * @param command 
      */
     public void appendToWitness(Object command) {
         if (witness.getItems().size() == 0) {
@@ -144,13 +153,13 @@ public class SegwitBitcoinTransactionInput extends BitcoinTransactionInput {
     }
     
     /**
-     * Gets the sig hash internal.
+     * 
      *
-     * @param transaction the transaction
-     * @param serializedScriptPubkey the serialized script pubkey
-     * @param amount the amount
-     * @return the sig hash internal
-     * @throws IOException Signals that an I/O exception has occurred.
+     * @param transaction 
+     * @param serializedScriptPubkey 
+     * @param amount 
+     * @return 
+     * @throws IOException 
      */
     private String getSigHashInternal(
         BitcoinTransaction transaction,

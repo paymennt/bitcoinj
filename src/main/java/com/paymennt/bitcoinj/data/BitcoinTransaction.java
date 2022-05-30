@@ -14,27 +14,26 @@ import com.paymennt.bitcoinj.data.mapper.BitcoinTransactionMapper;
 import com.paymennt.bitcoinj.data.mapper.LegacyBitcoinTransactionMapper;
 import com.paymennt.bitcoinj.data.mapper.SegwitBitcoinTransactionMapper;
 
-// TODO: Auto-generated Javadoc
+
 /**
- * The Class BitcoinTransaction.
- *
- * @author payemnnt
+ * @author paymennt
+ * 
  */
 public abstract class BitcoinTransaction {
 
-    /** The Constant transactionMapperList. */
+    /**  */
     private static final List<BitcoinTransactionMapper<?>> transactionMapperList = new ArrayList<>();
 
-    /** The version. */
+    /**  */
     protected final BigInteger version;
 
-    /** The inputs. */
+    /**  */
     protected final List<BitcoinTransactionInput> inputs;
 
-    /** The outputs. */
+    /**  */
     protected final List<BitcoinTransactionOutput> outputs;
 
-    /** The locktime. */
+    /**  */
     protected final BigInteger locktime;
 
     /*******************************************************************************************************************
@@ -47,11 +46,11 @@ public abstract class BitcoinTransaction {
     }
 
     /**
-     * From byte stream.
+     * 
      *
-     * @param stream the stream
-     * @return the bitcoin transaction
-     * @throws IOException Signals that an I/O exception has occurred.
+     * @param stream 
+     * @return 
+     * @throws IOException 
      */
     public static BitcoinTransaction fromByteStream(ByteArrayInputStream stream) throws IOException {
         BitcoinTransactionMapper<?> mapper = getMapperForInputStream(stream);
@@ -61,11 +60,11 @@ public abstract class BitcoinTransaction {
     }
 
     /**
-     * Gets the mapper for input stream.
+     * 
      *
-     * @param stream the stream
-     * @return the mapper for input stream
-     * @throws IOException Signals that an I/O exception has occurred.
+     * @param stream 
+     * @return 
+     * @throws IOException 
      */
     private static BitcoinTransactionMapper<?> getMapperForInputStream(ByteArrayInputStream stream) throws IOException {
         for (BitcoinTransactionMapper<?> mapper : transactionMapperList) {
@@ -76,13 +75,12 @@ public abstract class BitcoinTransaction {
     }
 
     /**
-     * *****************************************************************************************************************
-     * CONSTRUCTOR.
+     * 
      *
-     * @param version the version
-     * @param inputs the inputs
-     * @param outputs the outputs
-     * @param locktime the locktime
+     * @param version 
+     * @param inputs 
+     * @param outputs 
+     * @param locktime 
      */
 
     /**
@@ -103,28 +101,26 @@ public abstract class BitcoinTransaction {
     }
 
     /**
-     * *****************************************************************************************************************
-     * ABSTRACT METHODS.
+     * 
      *
-     * @return the string
-     * @throws IOException Signals that an I/O exception has occurred.
+     * @return 
+     * @throws IOException 
      */
 
     public abstract String serialize() throws IOException;
 
     /**
-     * Gets the transaction id.
+     * 
      *
-     * @return the transaction id
-     * @throws IOException Signals that an I/O exception has occurred.
+     * @return 
+     * @throws IOException 
      */
     public abstract String getTransactionId() throws IOException;
 
     /**
-     * *****************************************************************************************************************
-     * CLASS METHODS.
+     * 
      *
-     * @return the version
+     * @return 
      */
 
     public BigInteger getVersion() {
@@ -132,37 +128,37 @@ public abstract class BitcoinTransaction {
     }
 
     /**
-     * Gets the inputs.
+     * 
      *
-     * @return the inputs
+     * @return 
      */
     public List<BitcoinTransactionInput> getInputs() {
         return this.inputs;
     }
 
     /**
-     * Gets the outputs.
+     * 
      *
-     * @return the outputs
+     * @return 
      */
     public List<BitcoinTransactionOutput> getOutputs() {
         return this.outputs;
     }
 
     /**
-     * Gets the locktime.
+     * 
      *
-     * @return the locktime
+     * @return 
      */
     public BigInteger getLocktime() {
         return this.locktime;
     }
 
     /**
-     * Gets the input.
+     * 
      *
-     * @param inputIndex the input index
-     * @return the input
+     * @param inputIndex 
+     * @return 
      */
     public BitcoinTransactionInput getInput(int inputIndex) {
         return this.inputs.get(inputIndex);

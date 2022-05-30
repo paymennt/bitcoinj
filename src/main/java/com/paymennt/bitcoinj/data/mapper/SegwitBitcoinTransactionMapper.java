@@ -19,39 +19,38 @@ import com.paymennt.bitcoinj.data.SegwitBitcoinTransactionInput;
 import com.paymennt.bitcoinj.lib.VarInt;
 import com.paymennt.crypto.lib.LittleEndian;
 
-// TODO: Auto-generated Javadoc
+
 /**
- * The Class SegwitBitcoinTransactionMapper.
- *
- * @author bashar
+ * @author paymennt
+ * 
  */
 public class SegwitBitcoinTransactionMapper extends AbstractBitcoinTransactionMapper<SegwitBitcoinTransaction> {
 
-    /** The Constant INSTANCE. */
+    /**  */
     public static final SegwitBitcoinTransactionMapper INSTANCE = new SegwitBitcoinTransactionMapper();
 
-    /** The Constant SEGWIT_MARKER. */
+    /**  */
     protected static final String SEGWIT_MARKER = "00";
 
-    /** The Constant SEGWIT_FLAG. */
+    /**  */
     private static final String SEGWIT_FLAG = "01";
     
-    /** The Constant LEGACY_WITNESS. */
+    /**  */
     private static final String LEGACY_WITNESS = "00";
 
     /**
-     * *****************************************************************************************************************.
+     * 
      */
 
     private SegwitBitcoinTransactionMapper() {
     }
 
     /**
-     * *****************************************************************************************************************.
+     * 
      *
-     * @param stream the stream
-     * @return true, if is supported
-     * @throws IOException Signals that an I/O exception has occurred.
+     * @param stream 
+     * @return 
+     * @throws IOException 
      */
 
     /**
@@ -66,7 +65,11 @@ public class SegwitBitcoinTransactionMapper extends AbstractBitcoinTransactionMa
     }
 
     /**
-     * {@inheritDoc}
+     * 
+     *
+     * @param stream 
+     * @return 
+     * @throws IOException 
      */
     @Override
     public SegwitBitcoinTransaction parse(ByteArrayInputStream stream) throws IOException {
@@ -97,11 +100,11 @@ public class SegwitBitcoinTransactionMapper extends AbstractBitcoinTransactionMa
     }
 
     /**
-     * Serialize.
+     * 
      *
-     * @param transaction the transaction
-     * @return the string
-     * @throws IOException Signals that an I/O exception has occurred.
+     * @param transaction 
+     * @return 
+     * @throws IOException 
      */
     @Override
     public String serialize(SegwitBitcoinTransaction transaction) throws IOException {

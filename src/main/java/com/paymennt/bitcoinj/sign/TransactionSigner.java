@@ -15,23 +15,22 @@ import com.paymennt.bitcoinj.data.BitcoinTransactionInput;
 import com.paymennt.crypto.bip32.wallet.key.HdPrivateKey;
 import com.paymennt.crypto.bip32.wallet.key.HdPublicKey;
 
-// TODO: Auto-generated Javadoc
+
 /**
- * The Class TransactionSigner.
- *
- * @author payemnnt
+ * @author paymennt
+ * 
  */
 public class TransactionSigner {
     
     /**
-     * Sign.
+     * 
      *
-     * @param transaction the transaction
-     * @param privateKey the private key
-     * @param publicKey the public key
-     * @param inputIndex the input index
-     * @param amount the amount
-     * @throws IOException Signals that an I/O exception has occurred.
+     * @param transaction 
+     * @param privateKey 
+     * @param publicKey 
+     * @param inputIndex 
+     * @param amount 
+     * @throws IOException 
      */
     public static void sign(
         BitcoinTransaction transaction,
@@ -52,15 +51,15 @@ public class TransactionSigner {
     }
     
     /**
-     * Gets the sig hash.
+     * 
      *
-     * @param transaction the transaction
-     * @param privateKey the private key
-     * @param publicKey the public key
-     * @param inputIndex the input index
-     * @param amount the amount
-     * @return the sig hash
-     * @throws IOException Signals that an I/O exception has occurred.
+     * @param transaction 
+     * @param privateKey 
+     * @param publicKey 
+     * @param inputIndex 
+     * @param amount 
+     * @return 
+     * @throws IOException 
      */
     private static String getSigHash(
         BitcoinTransaction transaction,

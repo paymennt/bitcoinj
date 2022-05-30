@@ -15,22 +15,20 @@ import com.paymennt.crypto.lib.Hash160;
 import com.paymennt.crypto.lib.Hash256;
 import com.paymennt.crypto.lib.LittleEndian;
 
-// TODO: Auto-generated Javadoc
+
 /**
- * The Class LegacyBitcoinTransactionInput.
- *
- * @author payemnnt
+ * @author paymennt
+ * 
  */
 public class LegacyBitcoinTransactionInput extends BitcoinTransactionInput {
 
     /**
-     * *****************************************************************************************************************
-     * CONSTRUCTOR.
+     * 
      *
-     * @param previousTransactionId the previous transaction id
-     * @param previousIndex the previous index
-     * @param scriptSig the script sig
-     * @param sequence the sequence
+     * @param previousTransactionId 
+     * @param previousIndex 
+     * @param scriptSig 
+     * @param sequence 
      */
 
     public LegacyBitcoinTransactionInput(String previousTransactionId, BigInteger previousIndex, Script scriptSig,
@@ -39,10 +37,9 @@ public class LegacyBitcoinTransactionInput extends BitcoinTransactionInput {
     }
 
     /**
-     * *****************************************************************************************************************
-     * ABSTRACT IMPLEMENTATION METHODS.
+     * 
      *
-     * @return true, if is segwit input
+     * @return 
      */
 
     /**
@@ -54,7 +51,9 @@ public class LegacyBitcoinTransactionInput extends BitcoinTransactionInput {
     }
 
     /**
-     * {@inheritDoc}
+     * 
+     *
+     * @param commands 
      */
     @Override
     public void setSignature(List<Object> commands) {
@@ -63,7 +62,13 @@ public class LegacyBitcoinTransactionInput extends BitcoinTransactionInput {
     }
 
     /**
-     * {@inheritDoc}
+     * 
+     *
+     * @param transaction 
+     * @param compressedPublicKey 
+     * @param amount 
+     * @return 
+     * @throws IOException 
      */
     @Override
     public String getSigHash(BitcoinTransaction transaction, byte[] compressedPublicKey, BigInteger amount // not used in legacy transaction
@@ -73,13 +78,12 @@ public class LegacyBitcoinTransactionInput extends BitcoinTransactionInput {
     }
 
     /**
-     * *****************************************************************************************************************
-     * CLASS METHODS.
+     * 
      *
-     * @param transaction the transaction
-     * @param scriptPubkey the script pubkey
-     * @return the sig hash internal
-     * @throws IOException Signals that an I/O exception has occurred.
+     * @param transaction 
+     * @param scriptPubkey 
+     * @return 
+     * @throws IOException 
      */
 
     /**

@@ -11,20 +11,19 @@ import org.bouncycastle.util.Arrays;
 
 import com.paymennt.crypto.lib.Sha256;
 
-// TODO: Auto-generated Javadoc
+
 /**
- * The Class TaggedHash.
- *
- * @author payemnnt
+ * @author paymennt
+ * 
  */
 public class TaggedHash {
     
     /**
-     * Hash.
+     * 
      *
-     * @param tag the tag
-     * @param key the key
-     * @return the byte[]
+     * @param tag 
+     * @param key 
+     * @return 
      */
     public static byte[] hash(String tag, byte[] key) {
         byte[] shaTag = Sha256.hash(tag.getBytes(StandardCharsets.UTF_8));
@@ -33,11 +32,11 @@ public class TaggedHash {
     }
 
     /**
-     * Hash to big integer.
+     * 
      *
-     * @param tag the tag
-     * @param key the key
-     * @return the big integer
+     * @param tag 
+     * @param key 
+     * @return 
      */
     public static BigInteger hashToBigInteger(String tag, byte[] key) {
         return new BigInteger(1, hash(tag, key));

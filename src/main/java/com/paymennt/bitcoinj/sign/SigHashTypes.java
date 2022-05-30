@@ -6,14 +6,13 @@ package com.paymennt.bitcoinj.sign;
 
 import java.math.BigInteger;
 
-// TODO: Auto-generated Javadoc
+
 /**
- * The Class SigHashTypes.
- *
- * @author payemnnt
+ * @author paymennt
+ * 
  */
 public class SigHashTypes {
     
-    /** The Constant SIGHASH_ALL. */
+    /**  */
     public static final BigInteger SIGHASH_ALL = BigInteger.ONE;
 }

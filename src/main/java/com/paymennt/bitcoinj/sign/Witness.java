@@ -18,22 +18,20 @@ import org.bouncycastle.util.encoders.Hex;
 import com.paymennt.bitcoinj.lib.VarInt;
 import com.paymennt.crypto.lib.LittleEndian;
 
-// TODO: Auto-generated Javadoc
+
 /**
- * The Class Witness.
- *
- * @author payemnnt
+ * @author paymennt
+ * 
  */
 public class Witness {
     
-    /** The items. */
+    /**  */
     private List<Object> items;
     
     /**
-     * *****************************************************************************************************************
-     * CONSTRUCTOR.
+     * 
      *
-     * @param items the items
+     * @param items 
      */
     
     /**
@@ -44,12 +42,11 @@ public class Witness {
     }
     
     /**
-     * *****************************************************************************************************************
-     * STATIC BUILDERS.
+     * 
      *
-     * @param stream the stream
-     * @return the witness
-     * @throws IOException Signals that an I/O exception has occurred.
+     * @param stream 
+     * @return 
+     * @throws IOException 
      */
     
     /**
@@ -72,10 +69,9 @@ public class Witness {
     }
     
     /**
-     * *****************************************************************************************************************
-     * PUBLIC METHODS.
+     * 
      *
-     * @param item the item
+     * @param item 
      */
     
     /**
@@ -86,18 +82,18 @@ public class Witness {
     }
     
     /**
-     * Gets the items.
+     * 
      *
-     * @return the items
+     * @return 
      */
     public List<Object> getItems() {
         return items;
     }
     
     /**
-     * Serialize.
+     * 
      *
-     * @return the string
+     * @return 
      */
     public String serialize() {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();

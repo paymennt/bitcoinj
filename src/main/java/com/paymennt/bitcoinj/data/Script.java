@@ -26,50 +26,49 @@ import com.paymennt.crypto.lib.Hash160;
 import com.paymennt.crypto.lib.LittleEndian;
 import com.paymennt.crypto.lib.Sha256;
 
-// TODO: Auto-generated Javadoc
+
 /**
- * The Class Script.
- *
- * @author payemnnt
+ * @author paymennt
+ * 
  */
 public class Script {
 
-    /** The Constant UNKNOWN. */
+    /**  */
     public static final String UNKNOWN = "UNKNOWN";
     
-    /** The Constant P2PKH. */
+    /**  */
     public static final String P2PKH = "P2PKH"; // PAY TO PUBLIC KEY HASH
     
-    /** The Constant P2SH. */
+    /**  */
     public static final String P2SH = "P2SH"; // PAY 2 SCRIPT HASH
     
-    /** The Constant P2WPKH. */
+    /**  */
     public static final String P2WPKH = "P2WPKH"; // PAY 2 WITNESS PUBLIC KEY HASH
     
-    /** The Constant P2WSH. */
+    /**  */
     public static final String P2WSH = "P2WSH"; // PAY 2 WITNESS SCRIPT HASH
     
-    /** The Constant P2TR. */
+    /**  */
     public static final String P2TR = "P2TR"; // PAY 2 TAPROOT
 
-    /** The commands. */
+    /**  */
     private final List<Object> commands;
 
     /**
-     * Instantiates a new script.
+     * 
      *
-     * @param commands the commands
+     * @param commands 
      */
     public Script(List<Object> commands) {
         this.commands = commands;
     }
 
     /**
-     * From byte stream.
+     * 
      *
-     * @param stream the stream
-     * @return the script
-     * @throws IOException Signals that an I/O exception has occurred.
+     * @param stream 
+     * @return 
+     * @throws IOException 
      */
     public static Script fromByteStream(ByteArrayInputStream stream) throws IOException {
         BigInteger length = VarInt.fromByteStream(stream);
@@ -101,9 +100,9 @@ public class Script {
     }
 
     /**
-     * Raw serialize.
+     * 
      *
-     * @return the string
+     * @return 
      */
     public String rawSerialize() {
         StringBuilder stringBuilder = new StringBuilder();
@@ -130,9 +129,9 @@ public class Script {
     }
 
     /**
-     * Raw serialize for segwit sig hash.
+     * 
      *
-     * @return the string
+     * @return 
      */
     public String rawSerializeForSegwitSigHash() {
         StringBuilder stringBuilder = new StringBuilder();
@@ -147,10 +146,10 @@ public class Script {
     }
 
     /**
-     * Serialize.
+     * 
      *
-     * @return the string
-     * @throws IOException Signals that an I/O exception has occurred.
+     * @return 
+     * @throws IOException 
      */
     public String serialize() throws IOException {
         StringBuilder stringBuilder = new StringBuilder();
@@ -160,9 +159,9 @@ public class Script {
     }
 
     /**
-     * Serialize for segwit sig hash.
+     * 
      *
-     * @return the string
+     * @return 
      */
     public String serializeForSegwitSigHash() {
         StringBuilder stringBuilder = new StringBuilder();
@@ -172,49 +171,49 @@ public class Script {
     }
 
     /**
-     * Gets the commands.
+     * 
      *
-     * @return the commands
+     * @return 
      */
     public List<Object> getCommands() {
         return commands;
     }
 
     /**
-     * P 2 pkh address.
+     * 
      *
-     * @param prefix the prefix
-     * @return the string
+     * @param prefix 
+     * @return 
      */
     public String p2pkhAddress(String prefix) {
         return Base58.encodeWithChecksumFromHex(prefix.concat((String) commands.get(2)));
     }
 
     /**
-     * P 2 wpkh address.
+     * 
      *
-     * @param prefix the prefix
-     * @return the string
+     * @param prefix 
+     * @return 
      */
     public String p2wpkhAddress(String prefix) {
         return Bech32.encode(prefix, 0, Hex.decodeStrict((String) commands.get(1)));
     }
 
     /**
-     * P 2 tr address.
+     * 
      *
-     * @param prefix the prefix
-     * @return the string
+     * @param prefix 
+     * @return 
      */
     public String p2trAddress(String prefix) {
         return Bech32.encode(prefix, 1, Hex.decodeStrict((String) commands.get(1)));
     }
 
     /**
-     * P 2 sh address.
+     * 
      *
-     * @param prefix the prefix
-     * @return the string
+     * @param prefix 
+     * @return 
      */
     public String p2shAddress(String prefix) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -224,20 +223,20 @@ public class Script {
     }
 
     /**
-     * P 2 wsh address.
+     * 
      *
-     * @param prefix the prefix
-     * @return the string
+     * @param prefix 
+     * @return 
      */
     public String p2wshAddress(String prefix) {
         return Bech32.encode(prefix, 0, Sha256.hash(Hex.decode(rawSerialize())));
     }
 
     /**
-     * P 2 pkh script.
+     * 
      *
-     * @param hash160Pubkey the hash 160 pubkey
-     * @return the script
+     * @param hash160Pubkey 
+     * @return 
      */
     public static Script p2pkhScript(String hash160Pubkey) {
         return new Script(List.of(valueOf(OpCodes.OP_DUP), valueOf(OpCodes.OP_HASH160), hash160Pubkey,
@@ -245,58 +244,58 @@ public class Script {
     }
 
     /**
-     * P 2 wpkh script.
+     * 
      *
-     * @param hash160Pubkey the hash 160 pubkey
-     * @return the script
+     * @param hash160Pubkey 
+     * @return 
      */
     public static Script p2wpkhScript(String hash160Pubkey) {
         return new Script(List.of(ZERO, hash160Pubkey));
     }
 
     /**
-     * P 2 tr script.
+     * 
      *
-     * @param outputKey the output key
-     * @return the script
+     * @param outputKey 
+     * @return 
      */
     public static Script p2trScript(String outputKey) {
         return new Script(List.of(valueOf(OpCodes.OP_1), outputKey));
     }
 
     /**
-     * P 2 wsh script.
+     * 
      *
-     * @param sha256 the sha 256
-     * @return the script
+     * @param sha256 
+     * @return 
      */
     public static Script p2wshScript(String sha256) {
         return new Script(List.of(valueOf(OpCodes.OP_0), sha256));
     }
 
     /**
-     * P 2 sh script.
+     * 
      *
-     * @param hash160 the hash 160
-     * @return the script
+     * @param hash160 
+     * @return 
      */
     public static Script p2shScript(String hash160) {
         return new Script(Arrays.asList(valueOf(OpCodes.OP_HASH160), hash160, valueOf(OpCodes.OP_EQUAL)));
     }
 
     /**
-     * Append command.
+     * 
      *
-     * @param command the command
+     * @param command 
      */
     public void appendCommand(Object command) {
         commands.add(command);
     }
 
     /**
-     * Gets the type.
+     * 
      *
-     * @return the type
+     * @return 
      */
     public String getType() {
         String rawSerialized = rawSerialize();
@@ -337,36 +336,36 @@ public class Script {
     }
 
     /**
-     * Checks if is p2tr.
+     * 
      *
-     * @return true, if is p2tr
+     * @return 
      */
     private boolean isP2TR() {
         return commands.get(0).equals(valueOf(OpCodes.OP_1)) && ((String) commands.get(1)).length() == 64;
     }
 
     /**
-     * Checks if is p2wsh.
+     * 
      *
-     * @return true, if is p2wsh
+     * @return 
      */
     private boolean isP2WSH() {
         return commands.get(0).equals(valueOf(OpCodes.OP_0)) && ((String) commands.get(1)).length() == 64;
     }
 
     /**
-     * Checks if is p2wpkh.
+     * 
      *
-     * @return true, if is p2wpkh
+     * @return 
      */
     private boolean isP2WPKH() {
         return commands.get(0).equals(valueOf(OpCodes.OP_0)) && ((String) commands.get(1)).length() == 40;
     }
 
     /**
-     * Checks if is p2sh.
+     * 
      *
-     * @return true, if is p2sh
+     * @return 
      */
     private boolean isP2SH() {
         if (commands.size() < 3)
@@ -376,9 +375,9 @@ public class Script {
     }
 
     /**
-     * Checks if is p2pkh.
+     * 
      *
-     * @return true, if is p2pkh
+     * @return 
      */
     private boolean isP2PKH() {
         if (commands.size() < 5)
@@ -389,11 +388,11 @@ public class Script {
     }
 
     /**
-     * TODO: review.
+     * 
      *
-     * @param address the address
-     * @param network the network
-     * @return the script
+     * @param address 
+     * @param network 
+     * @return 
      */
     public static Script fromAddress(String address, Network network) {
         if (address == null)
@@ -415,11 +414,11 @@ public class Script {
     }
 
     /**
-     * TODO: review.
+     * 
      *
-     * @param address the address
-     * @param network the network
-     * @return the address format
+     * @param address 
+     * @param network 
+     * @return 
      */
     public static AddressFormat getAddressFormat(String address, Network network) {
         if (address == null)

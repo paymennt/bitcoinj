@@ -10,22 +10,20 @@ import java.util.List;
 
 import com.paymennt.bitcoinj.data.mapper.SegwitBitcoinTransactionMapper;
 
-// TODO: Auto-generated Javadoc
+
 /**
- * The Class SegwitBitcoinTransaction.
- *
- * @author payemnnt
+ * @author paymennt
+ * 
  */
 public class SegwitBitcoinTransaction extends BitcoinTransaction {
 
     /**
-     * *****************************************************************************************************************
-     * CONSTRUCTOR.
+     * 
      *
-     * @param version the version
-     * @param inputs the inputs
-     * @param outputs the outputs
-     * @param locktime the locktime
+     * @param version 
+     * @param inputs 
+     * @param outputs 
+     * @param locktime 
      */
 
     public SegwitBitcoinTransaction(BigInteger version, List<BitcoinTransactionInput> inputs,
@@ -34,14 +32,14 @@ public class SegwitBitcoinTransaction extends BitcoinTransaction {
     }
 
     /**
-     * Instantiates a new segwit bitcoin transaction.
+     * 
      *
-     * @param version the version
-     * @param inputs the inputs
-     * @param outputs the outputs
-     * @param locktime the locktime
-     * @param doubleSpend the double spend
-     * @param confirmations the confirmations
+     * @param version 
+     * @param inputs 
+     * @param outputs 
+     * @param locktime 
+     * @param doubleSpend 
+     * @param confirmations 
      */
     public SegwitBitcoinTransaction(BigInteger version, List<BitcoinTransactionInput> inputs,
             List<BitcoinTransactionOutput> outputs, BigInteger locktime, boolean doubleSpend, int confirmations) {
@@ -49,11 +47,10 @@ public class SegwitBitcoinTransaction extends BitcoinTransaction {
     }
 
     /**
-     * *****************************************************************************************************************
-     * ABSTRACT METHOD IMPLEMENTATION.
+     * 
      *
-     * @return the string
-     * @throws IOException Signals that an I/O exception has occurred.
+     * @return 
+     * @throws IOException 
      */
 
     /**
@@ -65,10 +62,10 @@ public class SegwitBitcoinTransaction extends BitcoinTransaction {
     }
 
     /**
-     * Gets the transaction id.
+     * 
      *
-     * @return the transaction id
-     * @throws IOException Signals that an I/O exception has occurred.
+     * @return 
+     * @throws IOException 
      */
     @Override
     public String getTransactionId() throws IOException {

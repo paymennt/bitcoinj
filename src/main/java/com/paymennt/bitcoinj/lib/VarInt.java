@@ -16,20 +16,19 @@ import org.bouncycastle.util.encoders.Hex;
 
 import com.paymennt.crypto.lib.LittleEndian;
 
-// TODO: Auto-generated Javadoc
+
 /**
- * The Class VarInt.
- *
- * @author payemnnt
+ * @author paymennt
+ * 
  */
 public class VarInt {
 
     /**
-     * From byte stream.
+     * 
      *
-     * @param bytes the bytes
-     * @return the big integer
-     * @throws IOException Signals that an I/O exception has occurred.
+     * @param bytes 
+     * @return 
+     * @throws IOException 
      */
     public static BigInteger fromByteStream(ByteArrayInputStream bytes) throws IOException {
         BigInteger firstByte = new BigInteger(1, bytes.readNBytes(1));
@@ -44,10 +43,10 @@ public class VarInt {
     }
 
     /**
-     * To byte stream.
+     * 
      *
-     * @param bigInteger the big integer
-     * @return the byte array input stream
+     * @param bigInteger 
+     * @return 
      */
     public static ByteArrayInputStream toByteStream(BigInteger bigInteger) {
         if (bigInteger.equals(BigInteger.ZERO)) {
@@ -68,10 +67,10 @@ public class VarInt {
     }
 
     /**
-     * To hex.
+     * 
      *
-     * @param bigInteger the big integer
-     * @return the string
+     * @param bigInteger 
+     * @return 
      */
     public static String toHex(BigInteger bigInteger) {
         return Hex.toHexString(toByteStream(bigInteger).readAllBytes());

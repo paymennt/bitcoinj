@@ -17,37 +17,34 @@ import com.paymennt.bitcoinj.lib.OpCodes;
 import com.paymennt.crypto.lib.Bytes;
 import com.paymennt.crypto.lib.LittleEndian;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class BitcoinTransactionInput.
- *
- * @author payemnnt
+ * @author paymennt
+ * 
  */
 public abstract class BitcoinTransactionInput {
 
-    /** The Constant HASH_160_PUBKEY_SIZE_HEX. */
+    /**  */
     protected static final String HASH_160_PUBKEY_SIZE_HEX = "14";
 
-    /** The previous transaction id. */
+    /**  */
     private final String previousTransactionId;
 
-    /** The previous index. */
+    /**  */
     private final BigInteger previousIndex;
 
-    /** The script sig. */
+    /**  */
     private Script scriptSig;
 
-    /** The sequence. */
+    /**  */
     private final BigInteger sequence;
 
     /**
-     * *****************************************************************************************************************
-     * STATIC METHODS.
+     * 
      *
-     * @param segwitTransaction the segwit transaction
-     * @param stream the stream
-     * @return the bitcoin transaction input
-     * @throws IOException Signals that an I/O exception has occurred.
+     * @param segwitTransaction 
+     * @param stream 
+     * @return 
+     * @throws IOException 
      */
 
     public static BitcoinTransactionInput fromByteStream(boolean segwitTransaction, ByteArrayInputStream stream)
@@ -65,13 +62,12 @@ public abstract class BitcoinTransactionInput {
     }
 
     /**
-     * *****************************************************************************************************************
-     * ABSTRACT CONSTRUCTOR.
+     * 
      *
-     * @param previousTransactionId the previous transaction id
-     * @param previousIndex the previous index
-     * @param scriptSig the script sig
-     * @param sequence the sequence
+     * @param previousTransactionId 
+     * @param previousIndex 
+     * @param scriptSig 
+     * @param sequence 
      */
 
     public BitcoinTransactionInput(String previousTransactionId, BigInteger previousIndex, Script scriptSig,
@@ -83,39 +79,37 @@ public abstract class BitcoinTransactionInput {
     }
 
     /**
-     * *****************************************************************************************************************
-     * ABSTRACT METHODS.
+     * 
      *
-     * @return true, if is segwit input
+     * @return 
      */
 
     public abstract boolean isSegwitInput();
 
     /**
-     * Sets the signature.
+     * 
      *
-     * @param commands the new signature
+     * @param commands 
      */
     public abstract void setSignature(List<Object> commands);
 
     /**
-     * Gets the sig hash.
+     * 
      *
-     * @param transaction the transaction
-     * @param compressedPublicKey the compressed public key
-     * @param amount the amount
-     * @return the sig hash
-     * @throws IOException Signals that an I/O exception has occurred.
+     * @param transaction 
+     * @param compressedPublicKey 
+     * @param amount 
+     * @return 
+     * @throws IOException 
      */
     public abstract String getSigHash(BitcoinTransaction transaction, byte[] compressedPublicKey, BigInteger amount)
             throws IOException;
 
     /**
-     * *****************************************************************************************************************
-     * CLASS METHODS.
+     * 
      *
-     * @return the string
-     * @throws IOException Signals that an I/O exception has occurred.
+     * @return 
+     * @throws IOException 
      */
 
     /**
@@ -132,52 +126,55 @@ public abstract class BitcoinTransactionInput {
     }
 
     /**
-     * Gets the previous transaction id.
+     * 
      *
-     * @return the previous transaction id
+     * @return 
      */
     public String getPreviousTransactionId() {
         return previousTransactionId;
     }
 
     /**
-     * Gets the previous index.
+     * 
      *
-     * @return the previous index
+     * @return 
      */
     public BigInteger getPreviousIndex() {
         return previousIndex;
     }
 
     /**
-     * Gets the script sig.
+     * 
      *
-     * @return the script sig
+     * @return 
      */
     public Script getScriptSig() {
         return scriptSig;
     }
 
     /**
-     * Gets the sequence.
+     * 
      *
-     * @return the sequence
+     * @return 
      */
     public BigInteger getSequence() {
         return sequence;
     }
 
     /**
-     * Sets the script sig.
+     * 
      *
-     * @param scriptSig the new script sig
+     * @param scriptSig 
      */
     public void setScriptSig(Script scriptSig) {
         this.scriptSig = scriptSig;
     }
 
     /**
-     * {@inheritDoc}
+     * 
+     *
+     * @param obj 
+     * @return 
      */
     @Override
     public boolean equals(Object obj) {
@@ -189,9 +186,9 @@ public abstract class BitcoinTransactionInput {
     }
 
     /**
-     * Append to P 2 SH script sig.
+     * 
      *
-     * @param command the command
+     * @param command 
      */
     public void appendToP2SHScriptSig(Object command) {
         if (isNull(scriptSig) || scriptSig.getCommands().size() == 0) {

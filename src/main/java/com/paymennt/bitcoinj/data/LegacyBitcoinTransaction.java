@@ -10,22 +10,20 @@ import java.util.List;
 
 import com.paymennt.bitcoinj.data.mapper.LegacyBitcoinTransactionMapper;
 
-// TODO: Auto-generated Javadoc
+
 /**
- * The Class LegacyBitcoinTransaction.
- *
- * @author payemnnt
+ * @author paymennt
+ * 
  */
 public class LegacyBitcoinTransaction extends BitcoinTransaction {
     
     /**
-     * *****************************************************************************************************************
-     * CONSTRUCTOR.
+     * 
      *
-     * @param version the version
-     * @param inputs the inputs
-     * @param outputs the outputs
-     * @param locktime the locktime
+     * @param version 
+     * @param inputs 
+     * @param outputs 
+     * @param locktime 
      */
     
     public LegacyBitcoinTransaction(
@@ -38,11 +36,10 @@ public class LegacyBitcoinTransaction extends BitcoinTransaction {
     }
     
     /**
-     * *****************************************************************************************************************
-     * ABSTRACT METHOD IMPLEMENTATION.
+     * 
      *
-     * @return the string
-     * @throws IOException Signals that an I/O exception has occurred.
+     * @return 
+     * @throws IOException 
      */
 
     /**
@@ -54,10 +51,10 @@ public class LegacyBitcoinTransaction extends BitcoinTransaction {
     }
 
     /**
-     * Gets the transaction id.
+     * 
      *
-     * @return the transaction id
-     * @throws IOException Signals that an I/O exception has occurred.
+     * @return 
+     * @throws IOException 
      */
     @Override
     public String getTransactionId() throws IOException {

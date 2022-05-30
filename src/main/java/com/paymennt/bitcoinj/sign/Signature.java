@@ -10,25 +10,24 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.math.BigInteger;
 
-// TODO: Auto-generated Javadoc
+
 /**
- * The Class Signature.
- *
- * @author payemnnt
+ * @author paymennt
+ * 
  */
 public class Signature {
     
-    /** The r. */
+    /**  */
     private final BigInteger r;
     
-    /** The s. */
+    /**  */
     private final BigInteger s;
 
     /**
-     * Instantiates a new signature.
+     * 
      *
-     * @param r the r
-     * @param s the s
+     * @param r 
+     * @param s 
      */
     public Signature(BigInteger r, BigInteger s) {
         this.r = r;
@@ -36,28 +35,28 @@ public class Signature {
     }
 
     /**
-     * Gets the s.
+     * 
      *
-     * @return the s
+     * @return 
      */
     public BigInteger getS() {
         return s;
     }
 
     /**
-     * Gets the r.
+     * 
      *
-     * @return the r
+     * @return 
      */
     public BigInteger getR() {
         return r;
     }
 
     /**
-     * Der.
+     * 
      *
-     * @return the byte[]
-     * @throws IOException Signals that an I/O exception has occurred.
+     * @return 
+     * @throws IOException 
      */
     public byte[] der() throws IOException {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -82,19 +81,19 @@ public class Signature {
     }
 
     /**
-     * Der hex.
+     * 
      *
-     * @return the string
-     * @throws IOException Signals that an I/O exception has occurred.
+     * @return 
+     * @throws IOException 
      */
     public String derHex() throws IOException {
         return Hex.toHexString(der());
     }
 
     /**
-     * To string.
+     * 
      *
-     * @return the string
+     * @return 
      */
     @Override
     public String toString() {

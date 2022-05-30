@@ -16,22 +16,20 @@ import com.paymennt.bitcoinj.lib.VarInt;
 import com.paymennt.crypto.lib.Hash256;
 import com.paymennt.crypto.lib.LittleEndian;
 
-// TODO: Auto-generated Javadoc
+
 /**
- * The Class AbstractBitcoinTransactionMapper.
- *
- * @author asendar
- * @param <T> the generic type
+ * @author paymennt
+ * 
  */
 public abstract class AbstractBitcoinTransactionMapper<T extends BitcoinTransaction>
         implements BitcoinTransactionMapper<T> {
 
     /**
-     * Gets the transaction id.
+     * 
      *
-     * @param transaction the transaction
-     * @return the transaction id
-     * @throws IOException Signals that an I/O exception has occurred.
+     * @param transaction 
+     * @return 
+     * @throws IOException 
      */
     @Override
     public String getTransactionId(T transaction) throws IOException {
