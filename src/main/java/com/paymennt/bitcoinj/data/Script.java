@@ -426,7 +426,8 @@ public class Script {
 
         boolean mainNet = network.equals(Network.MAINNET);
 
-        if (mainNet ? address.startsWith("1") : (address.startsWith("m") || address.startsWith("n")))
+        if (mainNet ? address.startsWith("1") || address.startsWith("001")
+                : (address.startsWith("m") || address.startsWith("n")))
             return AddressFormat.P2PKH;
 
         if (address.startsWith(mainNet ? "3" : "2"))
